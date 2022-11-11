@@ -1,7 +1,14 @@
 import express from "express";
-import testDb from "./controllers/registerController.js";
+import categoryRouter from "./routes/categoryRouter.js";
+import taskRouter from "./routes/taskRouter.js";
+import userRoutes from "./routes/userRouter.js";
+
 const app = express();
-app.get("/", testDb);
+app.use(express.json());
+
+app.use(userRoutes);
+app.use(taskRouter);
+app.use(categoryRouter);
 
 app.listen(5000, () => {
     console.log("Ouvindo porta 5000");
