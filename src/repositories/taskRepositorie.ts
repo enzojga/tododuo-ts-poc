@@ -18,3 +18,7 @@ export const getTaskById = (id: Number): Promise<QueryResult<TaskEntity>> => {
 export const deleteTaskById = (id: Number): Promise<QueryResult<TaskEntity>> => {
     return connection.query(`DELETE FROM tasks WHERE id=$1`, [id]); 
 }
+
+export const updateDescription = (id: Number, description: String):Promise<QueryResult> => {
+    return connection.query(`UPDATE tasks SET description=$1 WHERE id=$2`, [description, id]);
+}

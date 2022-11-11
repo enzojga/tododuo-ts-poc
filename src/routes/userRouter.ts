@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { signupUser, signIn } from "../controllers/registerController.js";
 
-const userRoutes = Router();
+const userRoutes: Router = Router();
 
 userRoutes.post("/signup", signupUser);
 userRoutes.post("/signin", signIn)

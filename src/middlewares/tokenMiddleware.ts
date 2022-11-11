@@ -1,7 +1,8 @@
 import { getSessions } from "../repositories/sessionsRepositorie.js";
 import { Request, Response } from "express";
+import type { RequestHandler } from "express";
 
-export const verifyToken = async (req: Request, res: Response, next) => {
+export const verifyToken: RequestHandler = async (req: Request, res: Response, next) => {
     try{
         const { authorization } = req.headers;
         const tokenHeader: String = authorization?.replace('Bearer ', '');
