@@ -10,14 +10,17 @@ const signupUser = async (req: Request, res: Response) => {
 
         const verifyName = await getUser(newUser);
         if (verifyName.rows.length !== 0) {
-            return res.sendStatus(401);
+            res.sendStatus(401);
+            return;
         }
         await registerUser(newUser);
 
-        return res.status(200).send("OK");
+        res.status(200).send("OK");
+        return;
     } catch (err) {
         console.log(err);
-        return res.sendStatus(500);
+        res.sendStatus(500);
+        return;
     }
 }
 
@@ -26,19 +29,23 @@ const signIn = async (req: Request, res: Response) => {
         const loginUser = req.body as User;
         const verifyUser = await getUser(loginUser);
         if(verifyUser.rows.length === 0){
-            return res.sendStatus(401);
+            res.sendStatus(401);
+            return;
         }
         if(loginUser.password !== verifyUser.rows[0].password){
-            return res.sendStatus(401)
+            res.sendStatus(401);
+            return;
         }
         
         const token: string = uuidv4();
         await insertSection({user_id: verifyUser.rows[0].id, token});
 
-        return res.status(200).send(token);
+        res.status(200).send(token);
+        return;
     } catch (err) {
         console.log(err);
-        return res.sendStatus(500);
+        res.sendStatus(500);
+        return;
     }
 }
 

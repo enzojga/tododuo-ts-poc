@@ -2,7 +2,7 @@ import { Router } from "express";
 import { verifyToken } from "../middlewares/tokenMiddleware.js";
 import { atributeDayToTask, changeDescription, createTaks, deleteTask, listTodayTasks, listAllTasks } from "../controllers/taskController.js";
 
-const taskRouter: Router = Router();
+const taskRouter = Router();
 
 taskRouter.post("/task", verifyToken, createTaks);
 taskRouter.get("/task", verifyToken, listAllTasks);
