@@ -83,3 +83,13 @@ Atualiza a descrição da tarefa selecionada, retorna status `202` caso a atuali
 Os dias da semana são numerados de 1 a 6, 1 sendo Domingo e 6 Sábado, retorna status `200` caso o dia seja atribuído a tarefa, `422` caso o dia seja invalido, `404` caso o id da tarefa não exista e `401` caso o usuário não seja o criador da tarefa selecionada.
 
 - Rota get `/task/today`: Uma rota agregadora, retorna a contagem de tarefas no dia da semana que for feita a requisição junto com as próprias tarefas.
+
+## Tecnologias utilizadas:
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" width="52" alt="typescript logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" width="52" alt="nodejs logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="40" width="52" alt="postgresql logo"  />
+</div>
+
+###
