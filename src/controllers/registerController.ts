@@ -15,7 +15,7 @@ const signupUser = async (req: Request, res: Response) => {
         }
         await registerUser(newUser);
 
-        res.status(200).send("OK");
+        res.status(201).send("OK");
         return;
     } catch (err) {
         console.log(err);

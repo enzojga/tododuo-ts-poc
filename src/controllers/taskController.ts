@@ -9,7 +9,7 @@ export const createTaks = async (req: Request, res: Response) => {
         const {name, description} = req.body as Taks;
         console.log(res.locals.user_id);
         await inesrtTask({name, description, user_id: res.locals.user_id});
-        res.sendStatus(200);
+        res.sendStatus(201);
         return;
     } catch (err) {
         console.log(err);
