@@ -1,5 +1,4 @@
 import express from "express";
-import categoryRouter from "./routes/categoryRouter.js";
 import taskRouter from "./routes/taskRouter.js";
 import userRoutes from "./routes/userRouter.js";
 
@@ -8,8 +7,10 @@ app.use(express.json());
 
 app.use(userRoutes);
 app.use(taskRouter);
-app.use(categoryRouter);
+
+
+const port = process.env.PORT || 5000;
 
 app.listen(5000, () => {
-    console.log("Ouvindo porta 5000");
-})
+    console.log(`Servidor iniciado na porta ${port}`);
+});

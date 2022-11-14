@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Taks } from "../protocols/taskProtocol.js";
 import { Description, Id } from "../protocols/genericProtocols.js";
-import { deleteTaskById, getAllTasks, getCountTasksToday, getTaskById, getTasksDaysByTaskIdAndDayId, getTodayTasks, inesrtTask, insertTasksDays, updateDescription } from "../repositories/taskRepositorie.js";
+import { deleteTaskById, deleteTaskDaysById, getAllTasks, getCountTasksToday, getTaskById, getTasksDaysByTaskIdAndDayId, getTodayTasks, inesrtTask, insertTasksDays, updateDescription } from "../repositories/taskRepositorie.js";
 import dayjs from 'dayjs';
 
 export const createTaks = async (req: Request, res: Response) => {
@@ -42,6 +42,7 @@ export const deleteTask = async (req: Request, res: Response) => {
             res.sendStatus(401);
             return;
         }
+        await deleteTaskDaysById(id);
         await deleteTaskById(id);
         res.sendStatus(204);
         return;
